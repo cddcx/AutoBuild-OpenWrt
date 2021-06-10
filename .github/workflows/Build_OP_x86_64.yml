@@ -92,6 +92,9 @@ jobs:
     - name: Download package
       working-directory: ./openwrt
       run: |
+        make defconfig
+        # 将差异保存在 diff.config 文件中
+        ./scripts/diffconfig.sh > diff.config
         make download -j$(nproc)
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
