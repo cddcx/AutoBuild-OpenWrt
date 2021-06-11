@@ -20,5 +20,9 @@
 #sed -i "7i uci set network.wan6.ifname='eth1'" openwrt/package/lean/default-settings/files/zzz-default-settings
 #sed -i "8i uci commit network" openwrt/package/lean/default-settings/files/zzz-default-settings
 
+# 修改默认主题
+#sed -i 's/bootstrap/argon-dark-mod/' feeds/luci/collections/luci/Makefile
+sed -i 's/bootstrap/argon/' openwrt/feeds/luci/collections/luci/Makefile
+
 # 修改密码
 #sed -i 's/V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0/SOP5eWTA$fJV8ty3QohO0chErhlxCm1:18775/g' openwrt/package/lean/default-settings/files/zzz-default-settings
