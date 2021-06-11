@@ -27,7 +27,7 @@
 #sed -i 's/bootstrap/argon-dark-mod/' feeds/luci/collections/luci/Makefile
 sed -i 's/bootstrap/argon/' openwrt/feeds/luci/collections/luci/Makefile
 
-#smartdns插件
+#安装smartdns插件
 WORKINGDIR="`pwd`/feeds/packages/net/smartdns"
 mkdir $WORKINGDIR -p
 rm $WORKINGDIR/* -fr
