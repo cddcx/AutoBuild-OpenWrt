@@ -26,3 +26,7 @@ sed -i "8i uci commit network" openwrt/package/lean/default-settings/files/zzz-d
 # 修改默认主题
 #sed -i 's/bootstrap/argon-dark-mod/' feeds/luci/collections/luci/Makefile
 sed -i 's/bootstrap/argon/' openwrt/feeds/luci/collections/luci/Makefile
+
+#smartdns插件
+git clone https://github.com/pymumu/smartdns.git package/lean/smartdns
+git clone -b lede https://github.com/pymumu/luci-app-smartdns.git package/lean/luci-app-smartdns
