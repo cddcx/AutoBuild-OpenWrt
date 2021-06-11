@@ -22,27 +22,3 @@
 
 # 修改密码
 #sed -i 's/V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0/SOP5eWTA$fJV8ty3QohO0chErhlxCm1:18775/g' openwrt/package/lean/default-settings/files/zzz-default-settings
-
-# 修改默认主题
-#sed -i 's/bootstrap/argon-dark-mod/' feeds/luci/collections/luci/Makefile
-sed -i 's/bootstrap/argon/' openwrt/feeds/luci/collections/luci/Makefile
-
-#安装smartdns插件
-WORKINGDIR="`pwd`/feeds/packages/net/smartdns"
-mkdir $WORKINGDIR -p
-rm $WORKINGDIR/* -fr
-wget https://github.com/pymumu/openwrt-smartdns/archive/master.zip -O $WORKINGDIR/master.zip
-unzip $WORKINGDIR/master.zip -d $WORKINGDIR
-mv $WORKINGDIR/openwrt-smartdns-master/* $WORKINGDIR/
-rmdir $WORKINGDIR/openwrt-smartdns-master
-rm $WORKINGDIR/master.zip
-
-LUCIBRANCH="lede" #更换此变量
-WORKINGDIR="`pwd`/feeds/luci/applications/luci-app-smartdns"
-mkdir $WORKINGDIR -p
-rm $WORKINGDIR/* -fr
-wget https://github.com/pymumu/luci-app-smartdns/archive/${LUCIBRANCH}.zip -O $WORKINGDIR/${LUCIBRANCH}.zip
-unzip $WORKINGDIR/${LUCIBRANCH}.zip -d $WORKINGDIR
-mv $WORKINGDIR/luci-app-smartdns-${LUCIBRANCH}/* $WORKINGDIR/
-rmdir $WORKINGDIR/luci-app-smartdns-${LUCIBRANCH}
-rm $WORKINGDIR/${LUCIBRANCH}.zip
