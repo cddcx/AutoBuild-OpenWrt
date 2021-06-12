@@ -68,6 +68,7 @@ jobs:
         ./scripts/feeds install -a
         ./scripts/feeds install -a
         #安装smartdns插件
+        rm -rf feeds/packages/net/smartdns/*
         WORKINGDIR="`pwd`/feeds/packages/net/smartdns"
         mkdir $WORKINGDIR -p
         rm $WORKINGDIR/* -fr
