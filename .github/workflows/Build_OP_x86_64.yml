@@ -58,7 +58,6 @@ jobs:
         REPO_BRANCH: master
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
-        [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
         chmod +x ./diy1.sh && ./diy1.sh
         
     - name: Update & Install feeds
