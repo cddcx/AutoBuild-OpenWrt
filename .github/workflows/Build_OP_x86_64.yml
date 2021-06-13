@@ -58,8 +58,7 @@ jobs:
         REPO_BRANCH: master
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
-        cd openwrt
-        chmod +x diy1.sh && diy1.sh
+        chmod +x diy1.sh && ./diy1.sh
         
     - name: Update & Install feeds
       working-directory: ./openwrt
