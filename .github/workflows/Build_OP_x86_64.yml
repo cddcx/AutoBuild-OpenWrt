@@ -58,33 +58,15 @@ jobs:
         REPO_BRANCH: master
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
-        cd openwrt
-        sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
         
     - name: Update & Install feeds
       working-directory: ./openwrt
       run: |
         ./scripts/feeds update -a
         chmod +x ./diy1.sh && ./diy1.sh
-        #安装smartdns插件
-        git clone https://github.com/pymumu/smartdns.git package/lean/smartdn
-        git clone -b lede https://github.com/pymumu/luci-app-smartdns.git package/lean/luci-app-smartdns
-        ./scripts/feeds install -a
         ./scripts/feeds install -a
         chmod +x ./diy2.sh && ./diy2.sh
-        
-        # 修改网络
-        sed -i 's/eth0/eth0 eth2 eth3/' package/base-files/files/etc/board.d/99-default_network
-        sed -i '2i # network config' package/lean/default-settings/files/zzz-default-settings
-        sed -i "3i uci set network.wan.proto='pppoe'" package/lean/default-settings/files/zzz-default-settings
-        sed -i "4i uci set network.wan.username='CD0283366379757'" package/lean/default-settings/files/zzz-default-settings
-        sed -i "5i uci set network.wan.password='19701115'" package/lean/default-settings/files/zzz-default-settings
-        sed -i "6i uci set network.wan.ifname='eth1'" package/lean/default-settings/files/zzz-default-settings
-        sed -i "7i uci set network.wan6.ifname='eth1'" package/lean/default-settings/files/zzz-default-settings
-        sed -i '8i uci commit network' package/lean/default-settings/files/zzz-default-settings
-        
-        # 修改密码
-        sed -i 's/V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0/SOP5eWTA$fJV8ty3QohO0chErhlxCm1:18775/g' package/lean/default-settings/files/zzz-default-settings
+        ./scripts/feeds install -a
 
     #- name: Import external feeds
     #  working-directory: ./openwrt
