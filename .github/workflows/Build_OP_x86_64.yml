@@ -68,25 +68,6 @@ jobs:
         ./scripts/feeds install -a
         ./scripts/feeds install -a
         #安装smartdns插件
-        rm -rf feeds/packages/net/smartdns/*
-        WORKINGDIR="`pwd`/feeds/packages/net/smartdns"
-        mkdir $WORKINGDIR -p
-        rm $WORKINGDIR/* -fr
-        wget https://github.com/pymumu/openwrt-smartdns/archive/master.zip -O $WORKINGDIR/master.zip
-        unzip $WORKINGDIR/master.zip -d $WORKINGDIR
-        mv $WORKINGDIR/openwrt-smartdns-master/* $WORKINGDIR/
-        rmdir $WORKINGDIR/openwrt-smartdns-master
-        rm $WORKINGDIR/master.zip
-
-        LUCIBRANCH="lede" #更换此变量
-        WORKINGDIR="`pwd`/feeds/luci/applications/luci-app-smartdns"
-        mkdir $WORKINGDIR -p
-        rm $WORKINGDIR/* -fr
-        wget https://github.com/pymumu/luci-app-smartdns/archive/${LUCIBRANCH}.zip -O $WORKINGDIR/${LUCIBRANCH}.zip
-        unzip $WORKINGDIR/${LUCIBRANCH}.zip -d $WORKINGDIR
-        mv $WORKINGDIR/luci-app-smartdns-${LUCIBRANCH}/* $WORKINGDIR/
-        rmdir $WORKINGDIR/luci-app-smartdns-${LUCIBRANCH}
-        rm $WORKINGDIR/${LUCIBRANCH}.zip
         
         # 修改网络
         sed -i 's/eth0/eth0 eth2 eth3/' package/base-files/files/etc/board.d/99-default_network
