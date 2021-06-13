@@ -3,7 +3,7 @@
 # Copyright (c) 2019-2020 P3TERX <https://p3terx.com>
 #
 # https://github.com/P3TERX/Actions-OpenWrt
-# File name: diy-part1.sh
+# File name: diy1.sh
 # Description: OpenWrt DIY script part 1 (Before Update feeds)
 #
 
