@@ -65,9 +65,11 @@ jobs:
       working-directory: ./openwrt
       run: |
         ./scripts/feeds update -a
-        ./scripts/feeds install -a
-        ./scripts/feeds install -a
         #安装smartdns插件
+        git clone https://github.com/pymumu/smartdns.git package/lean/smartdn
+        git clone -b lede https://github.com/pymumu/luci-app-smartdns.git package/lean/luci-app-smartdns
+        ./scripts/feeds install -a
+        ./scripts/feeds install -a
         
         # 修改网络
         sed -i 's/eth0/eth0 eth2 eth3/' package/base-files/files/etc/board.d/99-default_network
@@ -78,6 +80,7 @@ jobs:
         sed -i "6i uci set network.wan.ifname='eth1'" package/lean/default-settings/files/zzz-default-settings
         sed -i "7i uci set network.wan6.ifname='eth1'" package/lean/default-settings/files/zzz-default-settings
         sed -i '8i uci commit network' package/lean/default-settings/files/zzz-default-settings
+        
         # 修改密码
         sed -i 's/V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0/SOP5eWTA$fJV8ty3QohO0chErhlxCm1:18775/g' package/lean/default-settings/files/zzz-default-settings
 
