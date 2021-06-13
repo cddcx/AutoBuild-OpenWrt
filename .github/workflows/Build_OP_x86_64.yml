@@ -65,11 +65,13 @@ jobs:
       working-directory: ./openwrt
       run: |
         ./scripts/feeds update -a
+        chmod +x ./diy1.sh && ./diy1.sh
         #安装smartdns插件
         git clone https://github.com/pymumu/smartdns.git package/lean/smartdn
         git clone -b lede https://github.com/pymumu/luci-app-smartdns.git package/lean/luci-app-smartdns
         ./scripts/feeds install -a
         ./scripts/feeds install -a
+        chmod +x ./diy2.sh && ./diy2.sh
         
         # 修改网络
         sed -i 's/eth0/eth0 eth2 eth3/' package/base-files/files/etc/board.d/99-default_network
@@ -95,7 +97,6 @@ jobs:
         CONFIG_FILE: 'x86_64.config'
       run: |
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        chmod +x ./customize.sh && ./customize.sh
         cd openwrt && make defconfig
         
     - name: SSH connection to Actions
