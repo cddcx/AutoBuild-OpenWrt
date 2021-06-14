@@ -13,8 +13,8 @@
 #rm -rf package/lean/luci-app-adbyby-plus
 #rm -rf package/lean/luci-app-unblockmusic
 #rm -rf package/lean/UnblockNeteaseMusic
-$rm -rf package/lean/UnblockNeteaseMusicGo
-$rm -rf feeds/packages/net/smartdns
+#rm -rf package/lean/UnblockNeteaseMusicGo
+#rm -rf feeds/packages/net/smartdns
 
 # 修改默认主题
 #sed -i 's/bootstrap/argon-dark-mod/' feeds/luci/collections/luci/Makefile
