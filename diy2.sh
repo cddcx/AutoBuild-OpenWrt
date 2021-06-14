@@ -19,3 +19,5 @@ rm -rf feeds/packages/net/smartdns
 # 修改默认主题
 #sed -i 's/bootstrap/argon-dark-mod/' feeds/luci/collections/luci/Makefile
 sed -i 's/bootstrap/argon/' openwrt/feeds/luci/collections/luci/Makefile
+
+© 2021 GitHub, Inc.
