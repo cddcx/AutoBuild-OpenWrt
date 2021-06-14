@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout
+    - name: 检验
       uses: actions/checkout@master
 
     - name: 初始化编译环境
