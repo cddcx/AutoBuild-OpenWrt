@@ -74,11 +74,11 @@ jobs:
         ./scripts/feeds install -a
         ./scripts/feeds install -a
 
-    #- name: Import external feeds - passwall
-    #  working-directory: ./openwrt
-    #  run: |
-    #    git clone https://github.com/xiaorouji/openwrt-passwall.git package/lienol
-    #    git clone "your_github_link" package/"your_folder_name"      
+    - name: Import external feeds - openclash
+      working-directory: ./openwrt
+      run: |
+        svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
+        rm -rf package/luci-app-openclash/.svn      
 
     - name: Import external feeds - argon改版主题
       working-directory: ./openwrt
