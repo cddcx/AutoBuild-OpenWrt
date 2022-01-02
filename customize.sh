@@ -11,10 +11,15 @@
 # 修改内核 5.4改为5.10
 sed -i 's/PATCHVER:=5.10/PATCHVER:=5.15/g' openwrt/target/linux/x86/Makefile
 
-# 软件中心istore
-svn co https://github.com/linkease/istore/trunk/luci/luci-app-store package/luci-app-store
-rm -rf package/luci-app-store/.svn
-sed -i 's/("iStore"), 31/("应用商店"), 61/g' package/luci-app-store/luasrc/controller/store.lua
-
 # 修改默认主题
 sed -i 's/bootstrap/argon/' openwrt/feeds/luci/collections/luci/Makefile
+
+# 修改密码
+sed -i 's/V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0/SOP5eWTA$fJV8ty3QohO0chErhlxCm1:18775/g' openwrt/package/lean/default-settings/files/zzz-default-settings
+
+# 删除文件夹
+rm -rf openwrt/package/lean/adbyby
+rm -rf openwrt/package/lean/luci-app-adbyby-plus
+rm -rf openwrt/package/lean/luci-app-unblockmusic
+rm -rf openwrt/package/lean/UnblockNeteaseMusic
+rm -rf openwrt/package/lean/UnblockNeteaseMusicGo
