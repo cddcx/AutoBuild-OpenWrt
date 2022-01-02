@@ -14,9 +14,9 @@
 git clone https://github.com/fw876/helloworld.git package/luci-app-ssr-plus
 
 # godproxy去广告插件
-git clone https://github.com/godros/luci-app-godproxy.git package/luci-app-godproxy
+#git clone https://github.com/godros/luci-app-godproxy.git package/luci-app-godproxy
 
 # smartdns插件
-git clone https://github.com/pymumu/smartdns.git package/lean/smartdn
-git clone -b lede https://github.com/pymumu/luci-app-smartdns.git package/lean/luci-app-smartdns
+#git clone https://github.com/pymumu/smartdns.git package/lean/smartdn
+#git clone -b lede https://github.com/pymumu/luci-app-smartdns.git package/lean/luci-app-smartdns
 © 2021 GitHub, Inc.
